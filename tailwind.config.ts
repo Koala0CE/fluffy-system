@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#ed2d65",
+        complementary: "#2dedb3",
+        analogous: "#ed2dc6",
+        triadic: "#edb32d",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
