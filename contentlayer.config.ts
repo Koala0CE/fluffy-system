@@ -9,7 +9,7 @@ export const Post = defineDocumentType(() => ({
     publishedAt: { type: "date", required: true },
     updatedAt: { type: "date", required: true },
     description: { type: "string", required: true },
-    image: { type: "image" },
+    image: { type: "image", required: true },
     isPublished: { type: "boolean", default: true },
     tags: { type: "list", of: { type: "string" } },
   },
