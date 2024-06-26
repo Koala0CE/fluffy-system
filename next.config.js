@@ -1,5 +1,3 @@
-export default nextConfig;
-
 const { withContentlayer } = require("next-contentlayer");
 
 /** @type {import('next').NextConfig} */
