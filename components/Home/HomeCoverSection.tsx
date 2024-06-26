@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Tag from "../Elements/Tag";
-import { Post } from "@/utils/types";
+import { Post } from "contentlayer/generated";
 
 interface HomeCoverSectionProps {
   posts: Post[];
@@ -19,8 +19,8 @@ const HomeCoverSection = ({ posts }: HomeCoverSectionProps) => {
         <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% to-black/90 rounded-3xl z-0"></div>
         <Image
           src={post.image.filePath.replace("../public", "")}
-          // placeholder="blur"
-          //  blurDataURL={post.image.blurhasDataUrl}
+          //  placeholder="blur"
+          // blurDataURL={post.image.blurhasDataUrl}
           alt={post.title}
           fill
           className="w-full h-full object-center object-cover rounded-3xl"
