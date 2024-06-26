@@ -9,22 +9,25 @@ export const cx = (...classNames: (string | undefined | null | false)[]) =>
 
 export const sortPosts = (
   posts: {
+    title: string;
+    publishedAt: string;
+    updatedAt: string;
+    description: string;
+
     image: {
       filePath: string;
-      blurhasDataUrl: string;
-      blurDataURL: string;
-      alt: string;
       relativeFilePath: string;
       format: string;
       height: number;
       width: number;
       aspectRatio: number;
+      blurhasDataUrl: string;
+      blurDataURL: string;
+      alt: string;
       blurhashDataUrl: string;
     };
-    title: string;
-    description: string;
+    isPublished: boolean;
     tags: string[];
-    publishedAt: string;
     url: string;
   }[]
 ) => {
