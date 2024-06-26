@@ -14,6 +14,12 @@ export const sortPosts = (
       blurhasDataUrl: string;
       blurDataURL: string;
       alt: string;
+      relativeFilePath: string;
+      format: string;
+      height: number;
+      width: number;
+      aspectRatio: number;
+      blurhashDataUrl: string;
     };
     title: string;
     description: string;
