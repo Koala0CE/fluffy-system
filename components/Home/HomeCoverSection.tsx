@@ -3,20 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Tag from "../Elements/Tag";
-
-interface Post {
-  image: {
-    filePath: string;
-    blurhasDataUrl: string;
-    blurDataURL: string;
-    alt: string;
-  };
-  title: string;
-  tags: string[];
-  url: string;
-  description: string;
-  publishedAt: string;
-}
+import { Post } from "@/utils/types";
 
 interface HomeCoverSectionProps {
   posts: Post[];
