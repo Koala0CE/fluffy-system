@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Post } from "@/utils/types";
 
-// Update the component to use the Post interface
 const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <div className="inline-block overflow-hidden rounded-x1">
