@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import Link from "next/link";
-import { GitHubIcon } from "@/icons";
+import { GitHubIcon } from "@/Icons";
 
 const Header = () => {
   return (
