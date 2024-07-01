@@ -2,8 +2,16 @@ import Tag from "@/components/Elements/Tag";
 import PostDetails from "@/components/Post/PostDetails";
 import RenderMdx from "@/components/Post/RenderMdx";
 import { allPosts } from "contentlayer/generated";
-import { slug } from "github-slugger";
 import Image from "next/image";
+import GithubSlugger, { slug } from "github-slugger";
+
+const slugger = new GithubSlugger();
+
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post._raw.flattenedPath,
+  }));
+}
 
 export default function Page({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
