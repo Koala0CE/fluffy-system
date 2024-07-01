@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Tag from "../Elements/Tag";
 import { Post } from "contentlayer/generated";
+import { slug } from "github-slugger";
 
 interface HomeCoverSectionProps {
   posts: Post[];
@@ -27,7 +28,7 @@ const HomeCoverSection = ({ posts }: HomeCoverSectionProps) => {
         />
 
         <div className="w-3/4 p-16 flex flex-col items-start justify-center z-0 text-light">
-          <Tag link={`/categories/${post.tags[0]}`} name={post.tags[0]} />
+          <Tag link={`/categories/${slug(post.tags[0])}`} name={post.tags[0]} />
 
           <Link href={post.url} className="mt-6">
             <h1 className="font-bold capitalize text-4xl">
