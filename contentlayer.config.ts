@@ -1,5 +1,9 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import readingTime from "reading-time";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -26,4 +30,19 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({ contentDirPath: "posts", documentTypes: [Post] });
+const codeOptions = {
+  theme: "github-dark",
+  grid: false,
+};
+
+export default makeSource({
+  contentDirPath: "posts",
+  documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "append" }],
+    ],
+  },
+});
