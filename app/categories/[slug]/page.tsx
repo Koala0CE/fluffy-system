@@ -1,7 +1,30 @@
 // Importing allPosts data from the contentlayer generated file
+import Categories from "@/components/Post/Categories";
+import PostLayoutThree from "@/components/Post/PostLayoutThree";
 import { allPosts } from "contentlayer/generated";
-// Importing the slug function from github-slugger to convert strings to URL slugs
-import { slug } from "github-slugger";
+
+import GithubSlugger, { slug } from "github-slugger";
+
+const slugger = new GithubSlugger();
+
+export async function generateStaticParams() {
+  const categories: string[] = [];
+  const paths = [{ slug: "all" }];
+
+  allPosts.forEach((post) => {
+    if (post.isPublished) {
+      post.tags.forEach((tag) => {
+        let slugified = slugger.slug(tag);
+        if (!categories.includes(slugified)) {
+          categories.push(slugified);
+          paths.push({ slug: slugified });
+        }
+      });
+    }
+  });
+
+  return paths;
+}
 
 // CategoryPage component definition accepting params as props
 const CategoryPage = ({ params }: any) => {
@@ -26,7 +49,24 @@ const CategoryPage = ({ params }: any) => {
     });
   });
   // Rendering the category name and the filtered list of posts
-  return <div>Category Name {params.slug}</div>;
+  return (
+    <article className="mt-12 flex flex-col text-black">
+      <div className="px-32 flex flex-col">
+        <h1 className="mt-6 font-semibold text-5xl">#{params.slug}</h1>
+        <span className="mt-2 inline-block">
+          Discover more categories and expand your knowledge!{" "}
+        </span>
+      </div>
+      <Categories categories={allCategories} active={params.slug} />
+      <div className="grid grid-cols-3 grid-rows-2 gap-16 mt-24 px-32">
+        {posts.map((post, index) => (
+          <article key={index} className="col-span-1 row-span-1 relative">
+            <PostLayoutThree post={post} />
+          </article>
+        ))}
+      </div>
+    </article>
+  );
 };
 // Exporting CategoryPage as the default export
 export default CategoryPage;
