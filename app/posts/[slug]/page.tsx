@@ -2,6 +2,7 @@ import Tag from "@/components/Elements/Tag";
 import PostDetails from "@/components/Post/PostDetails";
 import RenderMdx from "@/components/Post/RenderMdx";
 import { allPosts } from "contentlayer/generated";
+import { slug } from "github-slugger";
 import Image from "next/image";
 
 export default function Page({ params }: { params: { slug: string } }) {
@@ -18,7 +19,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           <Tag
             className="px-6 text-sm py-2"
             name={post.tags[0]}
-            link={`/categories/${post.tags[0]}`}
+            link={`/categories/${slug(post.tags[0])}`}
           />
 
           <h1 className="inline-block mt-5 font-semibold captitalize text-white text-5xl leading-normal relative w-5/6"></h1>
