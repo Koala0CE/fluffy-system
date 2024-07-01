@@ -3,6 +3,7 @@ import Tag from "../Elements/Tag";
 import Link from "next/link";
 import Image from "next/image";
 import { Post } from "@/utils/types";
+import { slug } from "github-slugger";
 
 const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
   return (
@@ -19,7 +20,7 @@ const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
       <div className="absolute bottom-0 p-10 w-full z-20">
         <Tag
           className="px-6 text-sm py-2 !border"
-          link={`/categories/${post.tags[0]}`}
+          link={`/categories/${slug(post.tags[0])}`}
           name={post.tags[0]}
         />
 
