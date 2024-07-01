@@ -1,9 +1,10 @@
 import { format, parseISO } from "date-fns";
 import Link from "next/link";
-import { parse } from "path";
-import React from "react";
 
-const PostDetails = ({ post, slug }: any) => {
+import React from "react";
+import { slug } from "github-slugger";
+
+const PostDetails = ({ post, slug: blogSlug }: any) => {
   return (
     <div className="px-10 bg-primary text-white py-2 flex items-center justify-around flex-wrap text-xl font-medium mx-10 rounded-lg">
       <time className="m-3">
@@ -14,7 +15,7 @@ const PostDetails = ({ post, slug }: any) => {
 
       <div className="m-3">{post.readingTime.text}</div>
 
-      <Link className="m-3" href={`/categories/${post.tags[0]}`}>
+      <Link className="m-3" href={`/categories/${slug(post.tags[0])}`}>
         #{post.tags[0]}
       </Link>
     </div>
