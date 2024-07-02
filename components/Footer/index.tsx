@@ -13,7 +13,7 @@ const Footer = () => {
   console.log(errors);
 
   return (
-    <footer className="mt-16 rounded-2xl bg-black m-10 flex flex-col items-center text-white">
+    <footer className="mt-16 rounded-2xl bg-gray-200 m-10 flex flex-col items-center text-gray-800">
       <h3 className="mt-16 font-medium text-center capitalize text-4xl px-4">
         Projects | Updates | Contact | About | Blog | Privacy Policy
       </h3>
@@ -64,13 +64,13 @@ const Footer = () => {
         </a>
       </div>
 
-      <div className="w-full mt-24 relative font-medium border-t border-solid border-white py-6 px-8 flex flex-row items-center justify-between">
-        <span className="text-primary text-center">
+      <div className="w-full mt-24 relative font-medium border-t border-solid border-gray-300 py-6 px-8 flex flex-row items-center justify-between">
+        <span className="text-triadic text-center">
           &copy; 2024 Elvy All rights reserved
         </span>
 
-        <span className="text-primary text-center">Terms of Service</span>
-        <span className="text-primary text-center">Made with ❤️ by Elvy</span>
+        <span className="text-triadic text-center">Terms of Service</span>
+        <span className="text-triadic text-center">Made with ❤️ by Elvy</span>
       </div>
     </footer>
   );
