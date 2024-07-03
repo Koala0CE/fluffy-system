@@ -17,26 +17,29 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="w-full flex flex-col p-20 border-b-2 bordre-solid border-black text-black ">
-      Skills
-      <span className="font-semibold text-4xl text-red-400">
-        I am confortable in...
-      </span>
-      <ul className="flex flex-wrap mt-8 jsutify-start">
-        {skills.map((skill) => (
-          <li className="w-1/3">
-            <h3 className="font-semibold text-2xl text-red-400">
-              {skill.title}
-            </h3>
-            <ul className="mt-4">
-              {skill.skills.map((s) => (
-                <li className="font-medium text-base">{s}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <>
+      <div className="flex justify-center mx-4">
+        <section className="w-full flex flex-col p-20 border-b-2 bordre-solid border-gray-300 text-gray-800">
+          <span className="font-semibold text-4xl text-primary">
+            I am confortable in...
+          </span>
+          <ul className="flex flex-wrap mt-8 jsutify-start">
+            {skills.map((skill) => (
+              <li className="w-1/3">
+                <h3 className="font-semibold text-2xl text-primary">
+                  {skill.title}
+                </h3>
+                <ul className="mt-4">
+                  {skill.skills.map((s) => (
+                    <li className="font-medium text-base">{s}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </>
   );
 };
 
