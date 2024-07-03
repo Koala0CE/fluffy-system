@@ -15,8 +15,8 @@ const HomeCoverSection = ({ posts }: HomeCoverSectionProps) => {
 
   const post = sortedPosts[0];
   return (
-    <div className="w-full inline-block">
-      <article className="w-full flex flex-col items-start justify-end mx-10 relative h-[85vh] ">
+    <div className="w-full flex justify-center ">
+      <article className="w-[95vw] flex flex-col items-start justify-end relative h-[85vh]">
         <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% to-black/90 rounded-3xl z-0"></div>
         <Image
           src={post.image.filePath.replace("../public", "")}
