@@ -24,7 +24,7 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
           <PostLayoutTwo post={sortedPosts[0]} />
         </article>
         <article className="col-span-1 row-span-1 relative">
-          <PostLayoutTwo post={sortedPosts[0]} />
+          <PostLayoutTwo post={sortedPosts[1]} />
         </article>
       </div>
     </section>
