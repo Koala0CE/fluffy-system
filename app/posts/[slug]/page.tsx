@@ -46,8 +46,8 @@ export default function Page({ params }: { params: { slug: string } }) {
       </div>
       <PostDetails post={post} slug={params.slug} />
 
-      <div className="grid grid-cols-12 gap-16 mt-8 px-10">
-        <div className="col-span-4 ">Toc</div>
+      <div className="grid grid-cols-12 gap-5 mt-8 px-10">
+        <div className="col-span-4 bg-gray-100">Toc</div>
         <RenderMdx post={post} />
       </div>
     </article>
