@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
+import GithubSlugger from "github-slugger";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -26,6 +27,28 @@ export const Post = defineDocumentType(() => ({
     readingTime: {
       type: "json",
       resolve: (post) => readingTime(post.body.raw),
+    },
+    toc: {
+      type: "json",
+      resolve: async (post) => {
+        const regulrExp = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+        const slugger = new GithubSlugger();
+        const headings = Array.from(post.body.raw.matchAll(regulrExp)).map(
+          ({ groups }) => {
+            const flag = groups?.flag;
+            const content = groups?.content;
+
+            return {
+              level:
+                flag?.length == 1 ? "one" : flag?.length == 2 ? "two" : "three",
+              text: content,
+              slug: content ? slugger.slug(content) : undefined,
+            };
+          }
+        );
+
+        return headings;
+      },
     },
   },
 }));
