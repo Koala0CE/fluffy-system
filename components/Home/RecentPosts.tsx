@@ -26,10 +26,14 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-3 grid-rows-2 gap-16 mt-16">
+      <div
+        className={`grid grid-cols-3 gap-16 mt-16 ${
+          sortedPosts.length <= 3 ? "grid-rows-1" : "grid-rows-2"
+        }`}
+      >
         {sortedPosts.slice(0, 6).map((post, index) => {
           return (
-            <article className="col-span-1 row-span-1 relative ">
+            <article className="col-span-1 row-span-1 relative">
               <PostLayoutThree post={post} />
             </article>
           );
