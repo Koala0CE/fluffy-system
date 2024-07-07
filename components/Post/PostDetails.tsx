@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import React from "react";
 import { slug } from "github-slugger";
+import ViewCounter from "./ViewCounter";
 
 const PostDetails = ({ post, slug: blogSlug }: any) => {
   return (
@@ -11,7 +12,9 @@ const PostDetails = ({ post, slug: blogSlug }: any) => {
         {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
       </time>
 
-      <span className="m-3">10 views</span>
+      <span className="m-3">
+        <ViewCounter slug={blogSlug} />
+      </span>
 
       <div className="m-3">{post.readingTime.text}</div>
 
