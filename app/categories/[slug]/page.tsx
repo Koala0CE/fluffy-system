@@ -1,6 +1,7 @@
 // Importing allPosts data from the contentlayer generated file
 import Categories from "@/components/Post/Categories";
 import PostLayoutThree from "@/components/Post/PostLayoutThree";
+import { siteMetaData } from "@/utils/siteMetaData";
 import { allPosts } from "contentlayer/generated";
 
 import GithubSlugger, { slug } from "github-slugger";
@@ -24,6 +25,21 @@ export async function generateStaticParams() {
   });
 
   return paths;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  return {
+    title: `Category: ${params.slug.replaceAll("-", " ")} | ${
+      siteMetaData.title
+    }`,
+    description: `Discover more about ${
+      params.slug === "all" ? "web development" : params.slug
+    }!`,
+  };
 }
 
 // CategoryPage component definition accepting params as props
