@@ -1,13 +1,10 @@
 "use client";
 
-
 import { createClient } from "@/app/utils/supabase/client";
 import React, { useState, useEffect } from "react";
 
-
 interface ViewCount {
   count: number;
-
 }
 
 interface ViewCounterProps {
@@ -26,16 +23,14 @@ const ViewCounter: React.FC<ViewCounterProps> = ({
 
   useEffect(() => {
     const incrementView = async () => {
-      console.log("Incrementing view count"); // Log when incrementing
+      console.log("Incrementing view count");
       try {
         let { error } = await supabase.rpc("increment", {
           slug_text: slug,
         });
-        if (error)
-          console.error(
-            "Error incrementing view count inside try block",
-            error
-          );
+        if (error) {
+          console.error("Error incrementing view count inside try block", error);
+        }
       } catch (error) {
         console.error("Error incrementing view count", error);
       }
@@ -43,32 +38,27 @@ const ViewCounter: React.FC<ViewCounterProps> = ({
     if (!noCount) incrementView();
   }, [slug, noCount]);
 
-
   useEffect(() => {
     const getViews = async () => {
-      console.log("Fetching view count"); // Log when fetching view count
+      console.log("Fetching view count");
       try {
-    
-let { data,  error } = await supabase
-.from('views')
-.select('count').match({slug: slug}).single()
+        let { data, error } = await supabase
+          .from('views')
+          .select('count')
+          .match({ slug })
+          .single();
 
-        if (error)
-          console.error(
-            "Error incrementing view count inside try block",
-            error
-          );
-
-       setViews(data ? data.count : 0  )
-
-     
+        if (error) {
+          console.error("Error fetching view count", error);
+        } else {
+          setViews(data ? data.count : 0);
+        }
       } catch (error) {
-        console.error("Error incrementing view count", error);
+        console.error("Error fetching view count", error);
       }
     };
- getViews();
+    getViews();
   }, [slug]);
-
 
   if (showCount) {
     return <span>{views} views</span>;
