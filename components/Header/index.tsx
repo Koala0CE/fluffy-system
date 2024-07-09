@@ -9,6 +9,7 @@ import {
   FaProjectDiagram,
   FaEnvelope,
 } from "react-icons/fa";
+import { siteMetaData } from "@/utils/siteMetaData";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -96,7 +97,7 @@ const Header = () => {
       </nav>
       <div>
         <a
-          href="https://www.linkedin.com/in/cgiuroiu/"
+          href={siteMetaData.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary"
@@ -104,7 +105,7 @@ const Header = () => {
           .
         </a>
         <a
-          href="https://github.com/Koala0CE"
+          href={siteMetaData.github}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block w-6 h-6 mr-4"
