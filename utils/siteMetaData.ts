@@ -1,7 +1,4 @@
-import { describe } from "node:test";
-import { SiTeal } from "react-icons/si";
-
-const siteMetaData = {
+export const siteMetaData = {
   title: "Portfolio Site",
   description: "A portfolio site built with Next.js and TypeScript.",
   header: "Portfolio Site",
