@@ -1,5 +1,6 @@
 "use client";
 import { GitHubIcon } from "@/Icons";
+import { siteMetaData } from "@/utils/siteMetaData";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -58,7 +59,7 @@ const Footer = () => {
 
       <div className="flex items-center mt-8">
         <a
-          href="https://www.linkedin.com/in/cgiuroiu/"
+          href={siteMetaData.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary"
@@ -66,7 +67,7 @@ const Footer = () => {
           .
         </a>
         <a
-          href="https://github.com/Koala0CE"
+          href={siteMetaData.github}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block w-6 h-6 mr-4"
