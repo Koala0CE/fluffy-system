@@ -11,7 +11,7 @@
   "dependencies": {
     "@dotlottie/react-player": "^1.6.19",
     "@supabase/ssr": "^0.4.0",
-    "@supabase/supabase-js": "^2.44.2",
+    "@supabase/supabase-js": "^2.44.3",
     "contentlayer2": "^0.4.6",
     "date-fns": "^3.6.0",
     "github-slugger": "^2.0.0",
