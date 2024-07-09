@@ -4,6 +4,7 @@ import RenderMdx from "@/components/Post/RenderMdx";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
 import GithubSlugger, { slug } from "github-slugger";
+import { siteMetaData } from "@/utils/siteMetaData";
 
 const slugger = new GithubSlugger();
 
@@ -11,6 +12,62 @@ export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post._raw.flattenedPath,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+
+  if (!post) {
+    return;
+  }
+
+  const publishedAt = new Date(post.publishedAt).toISOString();
+  const modifiedAt = new Date(post.updatedAt || post.publishedAt).toISOString();
+
+  let imageList = [siteMetaData.socialBanner];
+  if (post.image) {
+    imageList =
+      typeof post.image.filePath === "string"
+        ? [siteMetaData.siteUrl + post.image.filePath.replace("../public", "")]
+        : [post.image.filePath];
+  }
+
+  const ogImages = imageList.map((image) => ({
+    return: {
+      url: image.includes("http") ? image : siteMetaData.siteUrl + image,
+    },
+  }));
+
+  const authors = post?.author ? [post.author] : [siteMetaData.author];
+
+  return {
+    title: post.title,
+    description: post.description,
+
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: siteMetaData.siteUrl + post.url,
+      siteName: siteMetaData.title,
+      images: ogImages,
+      locale: "en_UK",
+      article: {
+        publishedTime: publishedAt,
+        modifiedTime: modifiedAt,
+        authors: authors.length > 0 ? authors : [siteMetaData.author],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.description,
+        images: ogImages,
+      },
+    },
+  };
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
