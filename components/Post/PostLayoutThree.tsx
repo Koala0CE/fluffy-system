@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { format } from "date-fns";
-import { Post } from "@/utils/types";
+import { Post } from "contentlayer/generated";
 
 const PostLayoutThree: React.FC<{ post: Post }> = ({ post }) => {
   return (
