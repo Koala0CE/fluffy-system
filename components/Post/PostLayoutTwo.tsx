@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { format } from "date-fns";
-import { Post } from "@/utils/types";
+import { Post } from "contentlayer/generated";
 
 const PostLayoutTwo: React.FC<{ post: Post }> = ({ post }) => {
   return (
@@ -17,7 +17,7 @@ const PostLayoutTwo: React.FC<{ post: Post }> = ({ post }) => {
           width={post.image.width}
           height={post.image.height}
           // placeholder="blur"
-          //  blurDataURL={post.image.blurhasDataUrl}
+          // blurDataURL={post.image.blurhasDataUrl}
           className="aspect-square w-full h-full object-cover object-center"
         />
       </Link>
@@ -27,9 +27,9 @@ const PostLayoutTwo: React.FC<{ post: Post }> = ({ post }) => {
           {post.tags[0]}
         </span>
 
-        <Link href={post.url} className="inline-block my-1">
+        <Link className="inline-block my-1" href={post.url}>
           <h2 className="font-semibold capitalize text-lg">
-            <span className=" text-gray-800 bg-gradient-to-r from-analogous/50 to-analogous/50 bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+            <span className="text-gray-800 bg-gradient-to-r from-analogous/50 to-analogous/50 bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
               {post.title}
             </span>
           </h2>
