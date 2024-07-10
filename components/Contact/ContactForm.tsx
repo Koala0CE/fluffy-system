@@ -16,15 +16,15 @@ export default function ContactForm() {
       className="mt-12 text-xl font-medium leading-relaxed font-inter text-triadic"
       onSubmit={handleSubmit(onSubmit)}
     >
-      I'm
+      I&apos;m
       <input
         className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-analogous focus:border-analogous placeholder:text-triadic bg-transparent"
         type="text"
         placeholder="Your Name"
         {...register("name", { required: true })}
       />
-      and I’m excited to connect with you about a potential project. Feel free
-      to email me at
+      and I&apos;m excited to connect with you about a potential project. Feel
+      free to email me at
       <input
         className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-analogous focus:border-analogous placeholder:text-triadic bg-transparent"
         type="email"
@@ -38,7 +38,7 @@ export default function ContactForm() {
         placeholder="Your Phone Number"
         {...register("phone number", { required: true })}
       />
-      Here’s an overview of my project: <br />
+      Here&apos;s an overview of my project: <br />
       <textarea
         placeholder="Project Details / Message"
         rows={2}
