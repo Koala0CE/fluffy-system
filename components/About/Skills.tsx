@@ -24,14 +24,16 @@ const Skills = () => {
             I am confortable in...
           </span>
           <ul className="flex flex-wrap mt-8 jsutify-start">
-            {skills.map((skill) => (
-              <li className="w-1/3">
+            {skills.map((skill, index) => (
+              <li key={index} className="w-1/3">
                 <h3 className="font-semibold text-2xl text-primary">
                   {skill.title}
                 </h3>
                 <ul className="mt-4">
-                  {skill.skills.map((s) => (
-                    <li className="font-medium text-base">{s}</li>
+                  {skill.skills.map((s, subIndex) => (
+                    <li key={subIndex} className="font-medium text-base">
+                      {s}
+                    </li>
                   ))}
                 </ul>
               </li>
