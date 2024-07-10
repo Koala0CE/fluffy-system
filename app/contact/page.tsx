@@ -1,5 +1,3 @@
-"use client";
-
 import ContactForm from "@/components/Contact/ContactForm";
 import LottieAnimation from "@/components/Contact/LottieAnimation";
 import { siteMetaData } from "@/utils/siteMetaData";
