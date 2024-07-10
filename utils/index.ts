@@ -2,38 +2,18 @@
 // It then joins the remaining class names with a space and returns the result.
 // This is useful for conditionally applying classes to an element.
 
+import { allPosts, Post } from "contentlayer/generated";
 import { compareDesc, parseISO } from "date-fns";
 
+// Utility function to join class names conditionally
 export const cx = (...classNames: (string | undefined | null | false)[]) =>
   classNames.filter(Boolean).join(" ");
 
-export const sortPosts = (
-  posts: {
-    title: string;
-    publishedAt: string;
-    updatedAt: string;
-    description: string;
-
-    image: {
-      filePath: string;
-      relativeFilePath: string;
-      format: string;
-      height: number;
-      width: number;
-      aspectRatio: number;
-      blurhasDataUrl: string;
-      blurDataURL: string;
-      alt: string;
-      blurhashDataUrl: string;
-    };
-    isPublished: boolean;
-    tags: string[];
-    url: string;
-  }[]
-) => {
+// Sort posts by published date in descending order
+export const sortPosts = (posts: Post[]): Post[] => {
   return posts
     .slice()
-    .sort((a: { publishedAt: string }, b: { publishedAt: string }) =>
+    .sort((a: Post, b: Post) =>
       compareDesc(parseISO(a.publishedAt), parseISO(b.publishedAt))
     );
 };
