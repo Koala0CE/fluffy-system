@@ -20,13 +20,14 @@ const AboutCoverSection = () => {
           </h2>
           <p className="font-medium mt-4 text-base">
             {" "}
-            I'm Elvy, a dedicated and passionate Software Engineer with 2 years
-            of experience in fullstack and frontend development. I specialize in
-            building dynamic, responsive, and user-friendly applications that
-            provide a seamless experience across devices. When I'm not coding,
-            you can find me exploring new technologies and refining my skills in
-            both frontend and backend development. Feel free to browse through
-            my portfolio to see some of my recent projects.
+            I&apos;m Elvy, a dedicated and passionate Software Engineer with 2
+            years of experience in fullstack and frontend development. I
+            specialize in building dynamic, responsive, and user-friendly
+            applications that provide a seamless experience across devices. When
+            I&apos;m not coding, you can find me exploring new technologies and
+            refining my skills in both frontend and backend development. Feel
+            free to browse through my portfolio to see some of my recent
+            projects.
           </p>
         </div>
       </div>
