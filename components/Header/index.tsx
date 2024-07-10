@@ -10,8 +10,10 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { siteMetaData } from "@/utils/siteMetaData";
+import { useThemeSwitch } from "../Hooks/useThemeSwitch";
 
 const Header = () => {
+  ///  const [mode, setMode] = useThemeSwitch();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
