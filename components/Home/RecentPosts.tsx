@@ -1,15 +1,11 @@
 import { sortPosts } from "@/utils";
 import React from "react";
 
-import { Post } from "@/utils/types";
 import Link from "next/link";
 import PostLayoutThree from "../Post/PostLayoutThree";
+import { Post } from "contentlayer/generated";
 
-interface RecentPostsProps {
-  posts: Post[];
-}
-
-const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
+const RecentPosts: React.FC<{ posts: Post[] }> = ({ posts }) => {
   const sortedPosts = sortPosts(posts);
 
   return (
@@ -33,7 +29,7 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
       >
         {sortedPosts.slice(0, 6).map((post, index) => {
           return (
-            <article className="col-span-1 row-span-1 relative">
+            <article key={index} className="col-span-1 row-span-1 relative">
               <PostLayoutThree post={post} />
             </article>
           );
