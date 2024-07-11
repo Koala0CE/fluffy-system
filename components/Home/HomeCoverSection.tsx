@@ -12,8 +12,8 @@ const HomeCoverSection: React.FC<{ posts: Post[] }> = ({ posts }) => {
   const post = sortedPosts[0];
 
   return (
-    <div className="w-full flex justify-center">
-      <article className="w-[95vw] flex flex-col items-start justify-end relative h-[85vh]">
+    <div className="w-full inline-block">
+      <article className="flex flex-col items-start justify-end relative mx-5 sm:mx-10 h-[60vh] sm:h-[85vh]">
         <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% to-black/90 rounded-3xl z-0"></div>
         {post?.image?.filePath ? (
           <Image
@@ -28,7 +28,7 @@ const HomeCoverSection: React.FC<{ posts: Post[] }> = ({ posts }) => {
           <p>Image not available</p>
         )}
 
-        <div className="w-3/4 p-16 flex flex-col items-start justify-center z-0 text-light">
+        <div className="w-full lg:w-3/4 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col items-start justify-center z-0 text-white">
           {post?.tags?.[0] && (
             <Tag
               link={`/categories/${slug(post.tags[0])}`}
@@ -38,8 +38,8 @@ const HomeCoverSection: React.FC<{ posts: Post[] }> = ({ posts }) => {
 
           {post?.url ? (
             <Link className="mt-6" href={post.url}>
-              <h1 className="font-bold capitalize text-4xl">
-                <span className="text-white bg-gradient-to-r from-primary to-primary bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+              <h1 className="font-bold capitalize text-lg sm:text-xl md:text-3xl lg:text-4xl">
+                <span className="text-white bg-gradient-to-r from-primary to-primary dark:from-complementary/50 dark:to-complementary/50 bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
                   {post.title}
                 </span>
               </h1>
@@ -50,7 +50,7 @@ const HomeCoverSection: React.FC<{ posts: Post[] }> = ({ posts }) => {
             </h1>
           )}
 
-          <p className="inline-block mt-4 text-xl font-inter text-white">
+          <p className="hidden sm:inline-block mt-4 md:text-lg lg:text-xl font-inter text-white">
             {post?.description || "Description not available"}
           </p>
         </div>
