@@ -19,6 +19,12 @@ const config: Config = {
         inter: ["Inter", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
       },
+      screens: {
+        sxl: "1180px",
+        // @media (min-width: 1180px)
+        xs: "475px",
+        // @media (min-width: 475px)
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
