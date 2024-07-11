@@ -14,17 +14,17 @@ const Footer = () => {
   console.log(errors);
 
   return (
-    <footer className="mt-16 rounded-2xl bg-gray-200 m-10 flex flex-col items-center text-gray-800">
-      <h3 className="mt-16 font-medium text-center capitalize text-4xl px-4 text-teal-500">
+    <footer className="mt-16 rounded-2xl bg-gray-200 dark:bg-triadic m-5 sm:m-10 flex flex-col items-center text-gray-800 dark:text-white">
+      <h3 className="mt-16 font-medium dark:font-bold text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4 text-teal-500 dark:text-black">
         Projects | Updates | Contact | About | Blog | Privacy Policy
       </h3>
-      <p className="mt-5 px-4 text-center w-3/5 font-white text-base ">
+      <p className="mt-5 px-4 text-center w-full sm:w-3/5 font-light dark:font-medium text-sm sm:text-base dark:text-black">
         Get in touch with me for any project or collaboration. I am always open
         to new ideas and projects.
       </p>
 
       <form
-        className="mt-6 min-w-[384px] flex items-stretch bg-gray-100 p-2 rounded mx-4"
+        className="mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-gray-100 p-1 sm:p-2 rounded mx-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
@@ -42,7 +42,7 @@ const Footer = () => {
 
         <button
           type="submit"
-          className="font-mono bg-primary hover:bg-pink-600  text-white font-bold py-2 px-4 rounded inline-flex items-center"
+          className="font-mono bg-primary hover:bg-pink-600  text-white font-bold py-2 px-2 sm:px-4 rounded inline-flex items-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,17 +72,21 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="inline-block w-6 h-6 mr-4"
         >
-          <GitHubIcon className="hover:scale-125 transition-all ease duration-200" />
+          <GitHubIcon className="fill-white dark:fill-black hover:scale-125 transition-all ease duration-200" />
         </a>
       </div>
 
-      <div className="w-full mt-24 relative font-medium border-t border-solid border-gray-300 py-6 px-8 flex flex-row items-center justify-between">
+      <div className="w-full mt-16 md:mt-24 relative font-medium border-t border-solid border-gray-300 py-6 px-8 flex flex-col md:flex-row items-center justify-between">
         <span className="text-gray-800 text-center">
-          &copy; 2024 Elvy All rights reserved
+          &copy; 2024 Koala00CE. All rights reserved.
         </span>
 
-        <span className="text-gray-800 text-center">Terms of Service</span>
-        <span className="text-gray-800 text-center">Made with ❤️ by Elvy</span>
+        <span className="text-gray-800 text-center my-3 md:my-0">
+          Terms of Service
+        </span>
+        <span className="text-gray-800 text-center">
+          Made with ❤️ by Koala0CE
+        </span>
       </div>
     </footer>
   );
