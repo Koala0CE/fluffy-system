@@ -23,18 +23,18 @@ const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
         </div>
       )}
 
-      <div className="absolute bottom-0 p-10 w-full z-20">
+      <div className="w-full absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20">
         {post?.tags?.[0] && (
           <Tag
-            className="bg-primary hover:bg-pink-600 capitalize text-white font-semibold py-2 px-4 border border-complementary rounded shadow"
+            className="bg-primary hover:bg-pink-600 capitalize text-white font-semibold text-xs sm:text-sm py-1 sm:py-2 px-4 border border-complementary rounded shadow"
             link={`/categories/${slug(post.tags[0])}`}
             name={post.tags[0]}
           />
         )}
 
         {post?.url ? (
-          <Link className="block mt-4" href={post.url}>
-            <h2 className="font-bold capitalize text-2xl">
+          <Link className="block mt-2 sm:mt-4" href={post.url}>
+            <h2 className="font-bold capitalize text-sm xs:text-base sm:text-xl md:text-2xl">
               <span className="text-white bg-gradient-to-r from-primary to-primary bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
                 {post.title}
               </span>
