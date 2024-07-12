@@ -1,13 +1,13 @@
-// Importing allPosts data from the contentlayer generated file
 import Categories from "@/components/Post/Categories";
 import PostLayoutThree from "@/components/Post/PostLayoutThree";
 import { siteMetaData } from "@/utils/siteMetaData";
 import { allPosts } from "contentlayer/generated";
-
 import GithubSlugger, { slug } from "github-slugger";
 
+// Instantiate the slugger
 const slugger = new GithubSlugger();
 
+// Generate static paths for categories
 export async function generateStaticParams() {
   const categories: string[] = [];
   const paths = [{ slug: "all" }];
@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   allPosts.forEach((post) => {
     if (post.isPublished) {
       post.tags.forEach((tag) => {
-        let slugified = slugger.slug(tag);
+        const slugified = slugger.slug(tag);
         if (!categories.includes(slugified)) {
           categories.push(slugified);
           paths.push({ slug: slugified });
@@ -27,6 +27,7 @@ export async function generateStaticParams() {
   return paths;
 }
 
+// Generate metadata for each category page
 export async function generateMetadata({
   params,
 }: {
@@ -42,29 +43,26 @@ export async function generateMetadata({
   };
 }
 
-// CategoryPage component definition accepting params as props
-const CategoryPage = ({ params }: any) => {
-  // Initializing an array with a default category 'all'
+// Type for CategoryPage props
+interface CategoryPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+// CategoryPage component definition
+const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
   const allCategories = ["all"];
-  // Filtering posts based on the category slug provided in params
   const posts = allPosts.filter((post) => {
-    // Checking if any of the post's tags match the category slug
     return post.tags.some((tag) => {
-      // Converting the tag to a slug format
       const slugified = slug(tag);
-      // If the slugified tag is not already in allCategories, add it
       if (!allCategories.includes(slugified)) {
         allCategories.push(slugified);
       }
-      // If the requested category is 'all', return true to include all posts
-      if (params.slug === "all") {
-        return true;
-      }
-      // Otherwise, only include posts that match the category slug
-      return slugified === params.slug;
+      return params.slug === "all" || slugified === params.slug;
     });
   });
-  // Rendering the category name and the filtered list of posts
+
   return (
     <article className="mt-12 flex flex-col text-black dark:text-white">
       <div className="px-5 sm:px-10 md:px-24 sxl:px-32 flex flex-col">
@@ -72,10 +70,10 @@ const CategoryPage = ({ params }: any) => {
           #{params.slug}
         </h1>
         <span className="mt-2 inline-block">
-          Discover more categories and expand your knowledge!{" "}
+          Discover more categories and expand your knowledge!
         </span>
       </div>
-      <Categories categories={allCategories} active={params.slug} />
+      <Categories categories={allCategories} currentSlug={params.slug} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
         {posts.map((post, index) => (
           <article key={index} className="col-span-1 row-span-1 relative">
@@ -86,5 +84,5 @@ const CategoryPage = ({ params }: any) => {
     </article>
   );
 };
-// Exporting CategoryPage as the default export
+
 export default CategoryPage;
