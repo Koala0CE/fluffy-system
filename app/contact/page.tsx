@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="flex justify-center">
-      <section className="w-full max-w-[calc(100%-2rem)] h-[75vh] border-b-2 border-solid border-black flex flex-row items-center justify-center text-black mx-auto">
-        <div className="w-3/5 flex flex-col items-start justify-center px-16 pb-8">
-          <h2 className="font-bold text-4xl text-primary font-manrope">
-            Get in touch!
-          </h2>
-          <ContactForm />
-        </div>
-        <div className="inline-block w-2/5 h-full border-l-2 border-solid border-black">
-          <LottieAnimation />
-        </div>
-      </section>
-    </div>
+    // <div className="flex justify-center">
+    <section className="w-full h-auto md:h-[75vh] border-b-2 border-solid border-black dark:border-white flex flex-col md:flex-row items-center justify-center text-black dark:text-white">
+      <div className="inline-block w-full sm:w-4/5 md:w-2/5 h-full md:border-r-2 border-solid border-black dark:border-white">
+        <LottieAnimation />
+      </div>
+      <div className="w-full md:w-3/5 flex flex-col items-start justify-center px-5 xs:px-10 md:px-16 pb-8">
+        <h2 className="font-bold text-2xl xs:text-3xl sm:text-4xl text-primary">
+          Get in touch!
+        </h2>
+        <ContactForm />
+      </div>
+    </section>
+    // </div>
   );
 }
