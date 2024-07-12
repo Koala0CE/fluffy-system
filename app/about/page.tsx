@@ -14,7 +14,7 @@ export default function About() {
     <>
       <AboutCoverSection />
       <Skills />
-      <h2 className="mt-8 font-semibold text-2xl self-start mx-20 text-gray-800">
+      <h2 className="mt-8 font-semibold text-lg md:text-2xl self-start mx-5 xs:mx-10 sm:mx-12 md:mx-16 lg:mx-20 text-gray-800 dark:text-gray-200 dark:font-none">
         If you&apos;d like to collaborate or have any questions, don&apos;t
         hesitate to {""}
         <Link
