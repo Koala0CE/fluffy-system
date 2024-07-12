@@ -13,7 +13,7 @@ export default function ContactForm() {
 
   return (
     <form
-      className="mt-12 text-xl font-medium leading-relaxed font-inter text-triadic"
+      className="mt-12 text-base xs:text-lg sm:text-xl font-medium leading-relaxed font-inter text-triadic"
       onSubmit={handleSubmit(onSubmit)}
     >
       I&apos;m
@@ -43,13 +43,13 @@ export default function ContactForm() {
         placeholder="Project Details / Message"
         rows={2}
         cols={95}
-        className="outline-none border-0 p-0 mx-0 my-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-analogous focus:border-analogous placeholder:text-triadic bg-transparent"
+        className="w-full outline-none border-0 p-0 mx-0 my-2 focus:ring-0 placeholder:text-lg border-b border-analogous focus:border-analogous placeholder:text-triadic bg-transparent"
         {...register}
       />
       <button
         value={"send request"}
         type="submit"
-        className="font-mono bg-complementary hover:bg-emerald-600  text-white font-bold py-2 px-4 rounded inline-flex items-center"
+        className="font-mono bg-complementary hover:bg-emerald-600 text-white dark:text-black font-bold py-2 px-4 rounded inline-flex items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
