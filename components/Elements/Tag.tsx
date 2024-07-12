@@ -13,7 +13,7 @@ const Tag: React.FC<TagProps> = ({ link = "#", name, ...props }) => {
   return (
     <Link
       className={cx(
-        "bg-primary hover:bg-pink-600 capitalize text-white font-bold py-2 px-4 border-b-4 border-complementary hover:border-teal-600 rounded",
+        "bg-primary hover:bg-pink-600 capitalize text-white font-bold py-1 sm:py-2 px-6 sm:px-4 border-b-4 border-complementary hover:border-teal-600 rounded text-sm sm:text-base",
         props.className
       )}
       href={link}
