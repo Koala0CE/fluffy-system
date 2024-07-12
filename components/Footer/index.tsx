@@ -14,7 +14,7 @@ const Footer = () => {
   console.log(errors);
 
   return (
-    <footer className="mt-16 rounded-2xl bg-gray-200 dark:bg-triadic m-5 sm:m-10 flex flex-col items-center text-gray-800 dark:text-white">
+    <footer className="mt-16 rounded-2xl bg-gray-200 dark:bg-triadic m-2 sm:m-10 flex flex-col items-center text-gray-800 dark:text-white">
       <h3 className="mt-16 font-medium dark:font-bold text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4 text-teal-500 dark:text-black">
         Projects | Updates | Contact | About | Blog | Privacy Policy
       </h3>
@@ -24,17 +24,17 @@ const Footer = () => {
       </p>
 
       <form
-        className="mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-gray-100 p-1 sm:p-2 rounded mx-4"
+        className="mt-6 w-fit sm:min-w-[384px] flex items-stretch bg-gray-100 dark:bg-black p-1 sm:p-2 rounded mx-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <input
+        {/* <input
           className="w-full bg-transparent pl-0 text-gray-900 focus:border-gray-400 focus:ring-0 border-0 border-b mr-2 pb-1"
           type="text"
           placeholder="Enter your name"
           {...register("First name", { required: true, maxLength: 80 })}
-        />
+        /> */}
         <input
-          className="w-full bg-transparent pl-0 text-gray-900 focus:border-gray-400 focus:ring-0 border-0 border-b mr-2 pb-1"
+          className="w-full bg-transparent pl-2 sm:pl-0 text-gray-900 focus:border-gray-400 focus:ring-0 border-0 border-b mr-2 pb-1"
           type="text"
           placeholder="Enter you email"
           {...register("Email", { required: true, maxLength: 80 })}
@@ -42,7 +42,7 @@ const Footer = () => {
 
         <button
           type="submit"
-          className="font-mono bg-primary hover:bg-pink-600  text-white font-bold py-2 px-2 sm:px-4 rounded inline-flex items-center"
+          className="font-mono bg-primary dark:bg-white hover:bg-pink-600 text-white dark:text-black font-bold py-2 px-2 sm:px-4 rounded inline-flex items-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
