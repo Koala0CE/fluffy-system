@@ -18,11 +18,13 @@ const HomeCoverSection: React.FC<{ posts: Post[] }> = ({ posts }) => {
         {post?.image?.filePath ? (
           <Image
             src={post.image.filePath.replace("../public", "")}
-            // placeholder="blur"
-            // blurDataURL={post.image.blurDataUrl}
+            placeholder="blur"
+            blurDataURL={post.image.blurhashDataUrl}
             alt={post.title}
             fill
-            className="w-full h-full object-center object-cover rounded-3xl"
+            className="w-full h-full object-center object-cover rounded-3xl -z-10"
+            priority
+            sizes="100vw"
           />
         ) : (
           <p>Image not available</p>
