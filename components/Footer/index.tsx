@@ -1,8 +1,9 @@
 "use client";
-import { GitHubIcon } from "@/Icons";
+
 import { siteMetaData } from "@/utils/siteMetaData";
 import React from "react";
 import { useForm } from "react-hook-form";
+import GitHubIcon from "../icons/GitHubIcon";
 
 const Footer = () => {
   const {
