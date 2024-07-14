@@ -11,7 +11,9 @@ const AboutCoverSection = () => {
             className="w-4/5 xs:w-3/4 md:w-full h-full object-contain object-center"
             src={profilePicture}
             alt={"Elvy"}
-          ></Image>
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1180px) 50vw, 50vw"
+          />
         </div>
 
         <div className="bg-gray-100 w-full md:w-1/2 h-full flex flex-col text-left items-start justify-center px-5 xs:p-10 pb-10 lg:px-16 text-gray-800">
