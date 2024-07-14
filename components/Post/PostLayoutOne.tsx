@@ -15,7 +15,10 @@ const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
           alt={post.title}
           width={post.image.width}
           height={post.image.height}
-          className="w-full h-full object-center object-cover rounded-xl"
+          placeholder="blur"
+          blurDataURL={post.image.blurhashDataUrl}
+          className="w-full h-full object-center object-cover rounded-xl group-hover:scale-105 transition-all ease duration-300"
+          sizes="(max-width: 1180px) 100vw, 50vw"
         />
       ) : (
         <div className="w-full h-full bg-gray-200 rounded-xl">
