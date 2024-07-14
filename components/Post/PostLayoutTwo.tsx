@@ -19,6 +19,7 @@ const PostLayoutTwo: React.FC<{ post: Post }> = ({ post }) => {
           placeholder="blur"
           blurDataURL={post.image.blurhashDataUrl}
           className="aspect-square w-full h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </Link>
 
