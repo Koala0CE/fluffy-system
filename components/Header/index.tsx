@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
-import { GitHubIcon } from "@/Icons";
+
 import {
   FaHome,
   FaInfoCircle,
@@ -11,6 +11,15 @@ import {
 } from "react-icons/fa";
 import { siteMetaData } from "@/utils/siteMetaData";
 import { useThemeSwitch } from "../Hooks/useThemeSwitch";
+import { cx } from "@/utils";
+import MoonIcon from "../icons/MoonIcon";
+import SunIcon from "../icons/SunIcon";
+import GitHubIcon from "../icons/GitHubIcon";
+import ContactIcon from "../icons/ContactIcon";
+import HomeIcon from "../icons/HomeIcon";
+import AboutIcon from "../icons/AboutIcon";
+import MoonIconMini from "../icons/MoonIconMini";
+import SunIconMini from "../icons/SunIconMini";
 
 const Header = () => {
   const [mode, setMode] = useThemeSwitch();
@@ -36,8 +45,6 @@ const Header = () => {
   const toggleMenu = () => {
     setClick(!click);
   };
-
-  // className="w-max py-1 px-8 border border-solid border-blue-900 text-white  font-medium capitalize flex items-center fixed top-6 right-1/2 translate-x-1/2 bg-gray-800 backdrop-blur-sm z-50">
 
   return (
     <header className="w-full p-4 px-10 flex items-center justify-between">
@@ -77,11 +84,11 @@ const Header = () => {
           </div>
         </div>
       </button>
-
+      {/*  Small screen nav */}
       <nav
-        className="w-max py-3 px-6 sm:px-8 sm:px-10 border-blue-900 text-white sm:hidden flex items-center fixed top-6 right-1/2 translate-x-1/2 bg-gray-800 backdrop-blur-sm transition-all ease duration-300"
+        className="w-max py-3 px-6 sm:px-8 sm:px-10 border-blue-900 text-white sm:hidden flex items-center fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 backdrop-blur-sm transition-all ease duration-300 z-10"
         style={{
-          top: click ? "1rem" : "-5rem",
+          bottom: click ? "1rem" : "-5rem",
         }}
       >
         <Link href="/" className="mr-2 hover:text-complementary hover:italic">
@@ -100,41 +107,18 @@ const Header = () => {
           Contact
         </Link>
         <button
-          className="inline-block ml-1"
+          className={cx(
+            "w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1",
+            mode === "dark" ? "bg-gray-800" : "bg-gray-200"
+          )}
           onClick={() => {
             setMode(mode === "dark" ? "light" : "dark");
           }}
         >
           {mode === "dark" ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-              />
-            </svg>
+            <MoonIconMini className={"fill-black"} />
           ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
+            <SunIconMini className={"fill-black"} />
           )}
         </button>
       </nav>
@@ -142,9 +126,9 @@ const Header = () => {
       <nav
         className={`${
           isScrolled
-            ? "fixed top-0 right-0 h-full w-10 flex flex-col items-center justify-center py-10 "
+            ? "fixed top-0 right-0 h-full w-10 hidden sm:flex flex-col items-center justify-center py-10 "
             : "w-max py-1 px-5 sm:px-10  border-blue-900 text-white hidden sm:flex items-center fixed top-6 right-1/2 translate-x-1/2 bg-gray-800 backdrop-blur-sm"
-        } text-white font-medium capitalize z-50 transition-all duration-300 ease-in-out`}
+        } text-white font-medium capitalize z-50 `}
       >
         <div
           className={`${
@@ -153,23 +137,35 @@ const Header = () => {
               : ""
           } `}
         >
+          {/* Scrolled view */}
           {isScrolled ? (
             <>
               <Link href="/" className="mb-3 hover:text-complementary">
-                <FaHome className="w-6 h-6" />
+                <HomeIcon />
               </Link>
               <Link href="/about" className="mb-3 hover:text-complementary">
-                <FaInfoCircle className="w-6 h-6" />
+                <AboutIcon />
               </Link>
-              <Link href="/projects" className="mb-3 hover:text-complementary">
-                <FaProjectDiagram className="w-6 h-6" />
-              </Link>
+
               <Link href="/contact" className="mb-3 hover:text-complementary">
-                <FaEnvelope className="w-6 h-6" />
+                <ContactIcon />
               </Link>
+              <button
+                className="inline-block"
+                onClick={() => {
+                  setMode(mode === "dark" ? "light" : "dark");
+                }}
+              >
+                {mode === "dark" ? (
+                  <MoonIconMini className={"fill-black"} />
+                ) : (
+                  <SunIconMini className={"fill-black"} />
+                )}
+              </button>
             </>
           ) : (
-            <>
+            // Top NavBar
+            <div className="flex items-center justify-center">
               <Link
                 href="/"
                 className="mr-2 hover:text-complementary hover:italic"
@@ -190,52 +186,23 @@ const Header = () => {
               </Link>
               <Link
                 href="/contact"
-                className="mx-2 hover:text-complementary hover:italic"
+                className="mr-2 hover:text-complementary hover:italic"
               >
                 Contact
               </Link>
               <button
-                className="inline-block ml-4" // Adjust margin for alignment
+                className="inline-block ml-4"
                 onClick={() => {
                   setMode(mode === "dark" ? "light" : "dark");
                 }}
               >
-                {mode === "dark" ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                    />
-                  </svg>
-                )}
+                {mode === "dark" ? <SunIconMini /> : <MoonIconMini />}
               </button>
-            </>
+            </div>
           )}
         </div>
       </nav>
+      {/* Social Icons */}
       <div className="hidden sm:flex items-center">
         <a
           href={siteMetaData.linkedin}
