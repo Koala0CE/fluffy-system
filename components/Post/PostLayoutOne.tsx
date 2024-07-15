@@ -7,8 +7,8 @@ import { slug } from "github-slugger";
 
 const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
   return (
-    <div className="inline-block overflow-hidden rounded-xl relative">
-      <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent to-black/90 rounded-3xl z-10"></div>
+    <div className="group inline-block overflow-hidden rounded-xl relative">
+      <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent to-black/90 rounded-3xl z-10" />
       {post?.image?.filePath ? (
         <Image
           src={post.image.filePath.replace("../public", "")}
@@ -17,7 +17,7 @@ const PostLayoutOne: React.FC<{ post: Post }> = ({ post }) => {
           height={post.image.height}
           placeholder="blur"
           blurDataURL={post.image.blurhashDataUrl}
-          className="w-full h-full object-center object-cover rounded-xl group-hover:scale-105 transition-all ease duration-300"
+          className="w-[100vw] h-full aspect-[4/3] lg:h-[auto] object-center object-cover rounded-xl group-hover:scale-105 transition-all ease duration-300 "
           sizes="(max-width: 1180px) 100vw, 50vw"
         />
       ) : (
