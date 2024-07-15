@@ -16,7 +16,7 @@ const Logo = () => {
         />
       </div>
       <span className="text-lg md:text-xl font-bold dark:font-semibold ml-2 text-primary dark:text-primary">
-        ElvyCrissy
+        Koala0CE
       </span>
     </Link>
   );
