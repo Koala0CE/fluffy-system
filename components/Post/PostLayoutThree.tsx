@@ -15,7 +15,7 @@ const PostLayoutThree: React.FC<{ post: Post }> = ({ post }) => {
           alt={post.title}
           width={post.image.width}
           height={post.image.height}
-          className="aspect-[4/3] w-full h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300"
+          className="aspect-[4/3] w-[100vw] h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </Link>
