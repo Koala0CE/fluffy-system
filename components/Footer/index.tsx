@@ -4,6 +4,7 @@ import { siteMetaData } from "@/utils/siteMetaData";
 import React from "react";
 import { useForm } from "react-hook-form";
 import GitHubIcon from "../icons/GitHubIcon";
+import Link from "next/link";
 
 const Footer = () => {
   const {
@@ -17,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="mt-16 rounded-2xl bg-gray-200 dark:bg-triadic m-2 sm:m-10 flex flex-col items-center text-gray-800 dark:text-white">
       <h3 className="mt-16 font-medium dark:font-bold text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4 text-teal-500 dark:text-black">
-        Projects | Updates | Contact | About | Blog | Privacy Policy
+        Projects | Updates | Contact
       </h3>
       <p className="mt-5 px-4 text-center w-full sm:w-3/5 font-light dark:font-medium text-sm sm:text-base dark:text-black">
         Get in touch with me for any project or collaboration. I am always open
@@ -82,12 +83,22 @@ const Footer = () => {
           &copy; 2024 Koala00CE. All rights reserved.
         </span>
 
-        <span className="text-gray-800 text-center my-3 md:my-0">
-          Terms of Service
-        </span>
-        <span className="text-gray-800 text-center">
-          Made with ❤️ by Koala0CE
-        </span>
+        <Link
+          className="text-gray-800 text-center my-3 md:my-0 underline decoration-gray-800 light:decoration-complementary dark:decoration-gray-200"
+          href="/sitemap.xml"
+        >
+          sitemap.xml
+        </Link>
+
+        <Link
+          href="https://github.com/Koala0CE"
+          className="text-gray-800 text-center my-3 md:my-0"
+        >
+          Made with ❤️ by {""}
+          <span className="underline decoration-gray-800 light:decoration-complementary dark:decoration-gray-200">
+            Koala0CE
+          </span>
+        </Link>
       </div>
     </footer>
   );
