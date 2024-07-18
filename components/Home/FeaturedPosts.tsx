@@ -5,7 +5,6 @@ import PostLayoutTwo from "../Post/PostLayoutTwo";
 import { allPosts, Post } from "contentlayer/generated";
 
 const FeaturedPosts: React.FC<{ posts: Post[] }> = ({ posts }) => {
-  console.log(posts, "posts");
   // Sort posts by publishedAt descending
   const sortedPosts = sortPosts(posts);
 
@@ -21,16 +20,16 @@ const FeaturedPosts: React.FC<{ posts: Post[] }> = ({ posts }) => {
       </h2>
       <div className="grid grid-cols-2 grid-rows-2 gap-6 mt-10 sm:mt-16">
         {/* Render PostLayoutOne for the first post */}
-        <article className="col-span-2 sxl:col-span-1 row-span-2 relative">
-          <PostLayoutOne post={sortedPosts[0]} />
+        <article className="col-span-2 sxl:col-span-1 row-span-2 relative  flex">
+          <PostLayoutOne post={sortedPosts[2]} />
         </article>
         {/* Render PostLayoutTwo for the second post */}
-        <article className="col-span-2 sm:col-span-1 row-span-1 relative">
+        <article className="col-span-2 sm:col-span-1 row-span-1 relative flex">
           <PostLayoutTwo post={sortedPosts[1]} />
         </article>
         {/* Render PostLayoutTwo for the third post */}
         {sortedPosts.length > 2 && (
-          <article className="col-span-2 sm:col-span-1 row-span-1 relative">
+          <article className="col-span-2 sm:col-span-1 row-span-1 relative flex">
             <PostLayoutTwo post={sortedPosts[2]} />
           </article>
         )}
