@@ -5,24 +5,34 @@ image: "../public/memoryGlobe.png"
 publishedAt: 2024-05-11
 updatedAt: 2024-05-11
 isPublished: true
-author: Elvy
+author: Koala0CE
 tags:
-  - project 3
-  - css 3
+  - Secure Authentication
+  - Role-based Access Control
+  - Private Content Management
+  - Dynamic Content Display
+  - Static Site Hosting
+  - Headless CMS
+  - Continuous Deployment
+  - Secure Media
 ---
 
-# Project Overview
+# Project Overview TL;DR:
 
-## Project Title: Personal Timeline Application soon to be MemoryGlobe
+> Purpose: Create a personal timeline with private photos and memories. Authentication: Uses Auth0 for secure login; only friends and family can access private content. Content Management: Contentful CMS for private photo management. Hosting: Deployed on Vercel for dynamic and static content handling. Future Plans: Add an interactive globe showcasing travel photos. Challenges & Solutions: Secure Authentication: Auth0 for robust security. Private Content Management: Contentful for secure delivery. Dynamic Deployment: Vercel for continuous deployment and dynamic content rendering.
+
+## Project Title: Personal Timeline Application // MemoryGlobe
 
 ### Tech Stack
 
-- **React**
-- **TypeScript**
-- **Next.js**
-- **Contentful**
-- **Auth0**
-- **GitHub Pages**
+|              |                                                                  |
+| ------------ | ---------------------------------------------------------------- |
+| React        | A JavaScript library for building user interfaces                |
+| TypeScript   | A statically typed superset of JavaScript                        |
+| Next.js      | A React framework for building server-side rendered applications |
+| Contentful   | A headless CMS platform for managing content                     |
+| Auth0        | An authentication and authorization platform                     |
+| GitHub Pages | Web hosting service for GitHub repositories                      |
 
 ### Primary Goals and Functionalities
 
@@ -39,6 +49,31 @@ Integrating Contentful as a headless CMS to manage and deliver private photos an
 #### Dynamic Content Display
 
 Randomly displaying a set of public photos to unauthorized users while ensuring private photos are only accessible to authenticated users.
+
+```typescript
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const data = await fetchContentfulData();
+      setContentfulData(data);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+      setContentfulData(dummyData); // Fallback to dummy data in case of error
+    }
+    setIsLoading(false);
+  };
+
+  const hasFriendsAndFamilyRole = checkUserRole(user);
+  setIsFriendsAndFamily(hasFriendsAndFamilyRole);
+
+  if (hasFriendsAndFamilyRole) {
+    fetchData();
+  } else {
+    setContentfulData(dummyData);
+    setTimeout(() => setIsLoading(false), 1000);
+  }
+}, [user]);
+```
 
 #### Static Site Hosting
 
@@ -65,3 +100,7 @@ I plan to expand the application's UI by incorporating an interactive Earth glob
 Using Vercel allows for easy deployment of the Next.js application, which handles both static and dynamic content effectively. Auth0 is used for authentication, ensuring that sensitive data is only accessible to authenticated users. The dynamic content includes personalized data fetched from Contentful, a headless CMS, ensuring that each user sees content relevant to their authentication status.
 
 [Explore the application](https://verbose-memory.vercel.app)
+
+```
+
+```
