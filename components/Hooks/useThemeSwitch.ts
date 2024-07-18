@@ -32,10 +32,16 @@ export function useThemeSwitch() {
       toggleTheme(newMode);
     };
     handleChange();
-    mediaQuery.addEventListener("dhange", handleChange);
+    mediaQuery.addEventListener("change", handleChange);
 
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
-  }, [mode, setMode]);
+  }, []);
+
+  useEffect(() => {
+    toggleTheme(mode);
+  }, [mode]);
+
+  return [mode, setMode] as const;
 }

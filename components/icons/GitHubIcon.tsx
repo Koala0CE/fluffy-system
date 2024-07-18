@@ -1,18 +1,16 @@
-import { cx } from "./utils";
-
-interface IconProps {
-  className?: string; // Optional className prop
-  [key: string]: any; // Index signature for the rest of the props
-}
-
-export const GitHubIcon: React.FC<IconProps> = ({ className, ...rest }) => (
+import { cx } from "@/utils";
+import { SVGProps } from "react";
+const GitHubIcon = ({
+  className,
+  ...rest
+}: SVGProps<SVGSVGElement> & { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={98}
     height={96}
     viewBox="0 0 98 96"
-    {...rest}
     className={cx(className, "w-full h-auto")}
+    {...rest}
   >
     <path
       fill="#24292f"
@@ -22,3 +20,5 @@ export const GitHubIcon: React.FC<IconProps> = ({ className, ...rest }) => (
     />
   </svg>
 );
+
+export default GitHubIcon;

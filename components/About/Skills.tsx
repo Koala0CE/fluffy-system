@@ -19,19 +19,22 @@ const Skills = () => {
   return (
     <>
       <div className="flex justify-center mx-4">
-        <section className="w-full flex flex-col p-20 border-b-2 bordre-solid border-gray-300 text-gray-800">
-          <span className="font-semibold text-4xl text-primary">
-            I am confortable in...
+        <section className="w-full flex flex-col p-5 xs:p-10 sm:p-12 md:p-16 lg:p-20 border-b-2 border-solid border-gray-300 dark:border-white text-gray-800 dark:text-white">
+          <span className="font-semibold text-lg sm:text-3xl md:text-4xl text-primary dark:text-secondary">
+            I am comfortable in...
           </span>
-          <ul className="flex flex-wrap mt-8 jsutify-start">
+          <ul className="flex flex-wrap mt-8 justify-center xs:justify-start">
             {skills.map((skill, index) => (
-              <li key={index} className="w-1/3">
-                <h3 className="font-semibold text-2xl text-primary">
+              <li key={index} className="w-full sm:w-1/2 md:w-1/3 p-2 sm:mb-4">
+                <h3 className="font-semibold capitalize text-2xl text-primary sm:text-xl">
                   {skill.title}
                 </h3>
                 <ul className="mt-4">
                   {skill.skills.map((s, subIndex) => (
-                    <li key={subIndex} className="font-medium text-base">
+                    <li
+                      key={subIndex}
+                      className="font-medium text-base sm:text-sm sm:mb-2"
+                    >
                       {s}
                     </li>
                   ))}

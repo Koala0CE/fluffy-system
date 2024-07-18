@@ -7,7 +7,7 @@ import ViewCounter from "./ViewCounter";
 
 const PostDetails = ({ post, slug: blogSlug }: any) => {
   return (
-    <div className="px-10 bg-triadic text-white py-2 flex items-center justify-around flex-wrap text-xl font-medium mx-10 rounded-lg">
+    <div className="px-2 md:px-10 bg-analogous dark:bg-triadic text-white dark:text-black py-2 flex items-center justify-around flex-wrap text-lg sm:text-xl font-medium mx-5 sm:mx-10 rounded-lg">
       <time className="m-3">
         {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
       </time>

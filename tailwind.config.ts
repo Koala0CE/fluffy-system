@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "selector",
   theme: {
     extend: {
       colors: {
@@ -17,6 +18,12 @@ const config: Config = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
+      },
+      screens: {
+        sxl: "1180px",
+        // @media (min-width: 1180px)
+        xs: "475px",
+        // @media (min-width: 475px)
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
