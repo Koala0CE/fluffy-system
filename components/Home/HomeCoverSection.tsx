@@ -42,6 +42,7 @@ const HomeCoverSection: React.FC<{ posts: Post[] }> = ({ posts }) => {
             <Link className="mt-6" href={post.url}>
               <h1 className="font-bold capitalize text-lg sm:text-xl md:text-3xl lg:text-4xl">
                 <span className="text-white bg-gradient-to-r from-primary to-primary dark:from-complementary/50 dark:to-complementary/50 bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+                  {" "}
                   {post.title}
                 </span>
               </h1>
