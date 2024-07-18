@@ -179,7 +179,7 @@ const Header = () => {
                 About
               </Link>
               <Link
-                href="/projects"
+                href="/categories/all"
                 className="mr-2 hover:text-complementary hover:italic"
               >
                 Projects
